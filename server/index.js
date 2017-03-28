@@ -323,6 +323,33 @@ function timeRemaining(inputDate) {
     })
 })
 
+// if (process.env.NODE_ENV === 'production') {
+    
+    // app.use(express.static('client'))
+
+    // app.get('/', (req, res) => {
+    //   // load up index from our build folder
+    //   var thisPath = path.join(__dirname,'./client/build/index.html')
+    //   console.log('thisPath', thisPath);
+      
+
+    //   res.sendFile(path.join(__dirname, './client/build/index.html'));
+    //   // res.send('hello');
+      
+    // })
+    if (process.env.NODE_ENV === 'production') {
+
+      app.use(express.static(path.resolve(__dirname, '..', 'server/client/build')));
+
+      app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+      });
+
+    }
+// }
+
+
+
 let server;
 function runServer(port=3001) {
     return new Promise((resolve, reject) => {

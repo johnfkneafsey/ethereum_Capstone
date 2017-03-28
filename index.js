@@ -5,6 +5,9 @@ const app = express();
 const runServer = require('./server').runServer;
 
 if (process.env.NODE_ENV === 'production') {
+    // tell the server what to load
+
+
     // Just run the server
     runServer(process.env.PORT || 8080);
 }

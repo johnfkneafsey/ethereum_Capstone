@@ -4,7 +4,7 @@
   "description": "A full-stack starter template",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server/index.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm run build",
     "dev": "run-p dev:server dev:client start",
     "dev:client": "cd client && cross-env BROWSER=none npm start -- --color=always | xp http://localhost:3000/ http://localhost:8080/",
@@ -26,6 +26,7 @@
     "http-proxy-middleware": "^0.17.3",
     "immutability-helper": "^2.1.2",
     "npm-run-all": "^4.0.1",
+    "path": "^0.12.7",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-addons-transition-group": "^15.4.2",
