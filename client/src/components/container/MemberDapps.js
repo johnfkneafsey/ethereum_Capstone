@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../Actions/actions';
 import Heading from '../presentation//Heading';
 import NavBar from '../presentation/NavBar';
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 var Web3 = require('web3');
 let web3 = window.web3;
@@ -36,27 +36,27 @@ export class MemberDapps extends React.Component {
     onSubmit(index) {
         console.log('index ', index)
         let dappSelected = this.props.dappList[index]
-        console.log('dapp selected using index ', dappSelected)        
+        console.log('dapp selected using index ', dappSelected)
        this.props.dispatch(actions.userSelectedDapp(index))
-        
+
     }
-         
+
     render () {
-    
+
         let dapps = this.props.dappList.map((dapp, index) => {
             console.log("here is a dapp", dapp);
-            
+
             return (
-                
+
                 <Card key={index} className="card-border" >
                     <CardImg top width="30%" src={dapp.dappimagelink} alt="Card image cap" />
                     <CardBlock>
-                        <CardTitle><b>Submit Proposal Test</b></CardTitle>                        
+                        <CardTitle><b>Submit Proposal Test</b></CardTitle>
                         <CardTitle><b>Title: {dapp.dappname}</b></CardTitle>
                         <CardText><b>Description:</b> {dapp.dappdescription}</CardText>
                         <CardText><b>Source Code:</b> <a>{index}</a> </CardText>
                         <CardText><b>Creator:</b> {dapp.username}</CardText>
-                        <Button  onClick={() => this.onSubmit(index)}>  
+                        <Button  onClick={() => this.onSubmit(index)}>
                              <Link to="/submitproposal">Submit New Proposal</Link>
                         </Button>
                         <CardText></CardText>
@@ -91,5 +91,3 @@ const mapStateToProps = (state, props) => ({
 });
 
 export default connect(mapStateToProps)(MemberDapps);
-
-
